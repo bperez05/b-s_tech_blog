@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all Blogs and JOIN with user data
     const blogData = await Blog.findAll({
       include: [
         {
@@ -41,7 +41,7 @@ router.get('/blog/:id', async (req, res) => {
     const blog = blogData.get({ plain: true });
 
     res.render('blog', {
-      ...project,
+      ...blog,
       logged_in: req.session.logged_in
     });
   } catch (err) {
