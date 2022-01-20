@@ -1,17 +1,17 @@
 <!-- Loop over each object in the blogs array -->
-{{#each blogs as |blogs| }}
+{{#each blog as |blog| }}
 <div class="row align-cent mb-5">
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
       {{{get_emoji}}}
-      <a href="/views/homepage.hadlebars"</a>
+      <a href="Main/views/homepage.handlebars"</a>
     </h2>
-    <p>Created by {{blogs.user.name}} on {{format_date blogs.date_created}}</p>
+    <p>Created by {{blog.user.name}} on {{format_date blog.date_created}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{blogs.contents}}
+      {{blog.contents}}
     </p>
   </div>
 </div>
